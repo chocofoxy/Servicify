@@ -1,0 +1,39 @@
+<div>
+    <main class="bg-grey">
+      <div class="top d-flex justify-center align-center">
+          <div class="container">
+            <div class="form-container sign-in-container">
+                <form #loginform="ngForm" (ngSubmit)="login()" >
+                    <h1>Sign in</h1>
+                    <span class="my-2">or use your account</span>
+                    <input type="text" [(ngModel)]="user.username" [ngModelOptions]="{standalone: true}"  placeholder="Email" />
+                    <input type="password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" placeholder="Password" />
+                    <a href="#">Forgot your password?</a>
+                    <button>Sign In</button>
+                </form>
+            </div>
+          </div>
+      </div>
+      <div class="wave-container">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <linearGradient id="Linear">
+            <stop offset="0%" stop-color="#fff" stop-opacity="1" />
+            <stop offset="100%" stop-color="#ddd" stop-opacity="1" />
+          </linearGradient>
+          <path
+            style="fill: url(#Linear)"
+            d="M62.8,-59.5C78.6,-47.1,86.6,-23.5,84.7,-1.9C82.8,19.8,71.1,39.6,55.3,56.1C39.6,72.6,19.8,85.8,1,84.8C-17.7,83.8,-35.5,68.5,-49.7,52C-64,35.5,-74.8,17.7,-76.3,-1.5C-77.8,-20.7,-70,-41.5,-55.7,-53.9C-41.5,-66.4,-20.7,-70.6,1.4,-72C23.5,-73.4,47.1,-72,62.8,-59.5Z"
+            transform="translate(100 100)"
+          />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            style="fill: url(#Linear)"
+            fill-opacity="1"
+            d="M0,192L48,202.7C96,213,192,235,288,240C384,245,480,235,576,197.3C672,160,768,96,864,112C960,128,1056,224,1152,245.3C1248,267,1344,213,1392,186.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          />
+        </svg>
+      </div>
+    </main>
+</div>
+

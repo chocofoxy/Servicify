@@ -1,0 +1,88 @@
+<div id="container" [class]="swipeClass">
+    <div class="form-container sign-up-container">
+        <form [formGroup]="signupform">
+            <h1 data-aos="fade-up" style="color:#012970">Create Account</h1>
+            <div class="social-container">
+                <a href="#" class="social"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="social"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="social"><i class="fa fa-instagram"></i></a>
+            </div>
+            <span>or use your email for registration</span>
+            <input type="text" placeholder="Username" formControlName="username" />
+            <div>
+                <div *ngIf="signupform.controls['username'].invalid && 
+                (signupform.controls['username'].touched || signupform.controls['username'].dirty) ">
+
+                    <div *ngIf="signupform.controls['username'].errors.required" class="alert alert-danger"
+                        role="alert">
+                        username is required
+                    </div>
+
+                </div>
+            </div>
+            <input type="email" placeholder="user" formControlName="email" />
+            <div>
+                <div *ngIf="signupform.controls['email'].invalid && 
+                (signupform.controls['email'].touched || signupform.controls['email'].dirty) ">
+
+                    <div *ngIf="signupform.controls['email'].errors.required" class="alert alert-danger" role="alert">
+                        email is required
+                    </div>
+                    <div *ngIf="signupform.controls['email'].errors.email" class="alert alert-danger" role="alert">
+                        not a correct form
+                    </div>
+                </div>
+            </div>
+            <input type="password" placeholder="Password" formControlName="password" />
+            <div>
+                <div *ngIf="signupform.controls['password'].invalid && 
+                (signupform.controls['password'].touched || signupform.controls['password'].dirty) ">
+
+                    <div *ngIf="signupform.controls['password'].errors.required" class="alert alert-danger"
+                        role="alert">
+                        password is required
+                    </div>
+                    <div *ngIf="signupform.controls['password'].errors.minlength" class="alert alert-danger"
+                        role="alert">
+                        password must be at least 8 characters
+                    </div>
+                </div>
+            </div>
+            <input type="date" placeholder="date" style="width: 100%;" formControlName="dob" />
+            <button class="btn" [disabled]="signupform.invalid" (click)="signup()">Sign Up</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form #loginform="ngForm" (ngSubmit)="login()">
+            <h1 data-aos="fade-up" style="color:#012970">Sign in</h1>
+            <div class="social-container">
+                <a href="#" class="social"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="social"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="social"><i class="fa fa-instagram"></i></a>
+            </div>
+            <h2>or use your account</h2>
+            <input type="email" [(ngModel)]="user.username" [ngModelOptions]="{standalone: true}"
+                placeholder="username" />
+            <input type="password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}"
+                placeholder="Password" />
+            <a href="#">Forgot your password?</a>
+            <button class="btn">Sign In</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" (click)="swipeSide()" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp" (click)="swipeSide()">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
