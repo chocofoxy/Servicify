@@ -14,7 +14,8 @@
         </div>
         <div class="post-container p-2">
             <app-post-form></app-post-form>
-            <app-post-card *ngFor="let post of posts" [post]="post" class="my-4"></app-post-card>
+            <mat-divider class="my-4"></mat-divider>
+            <app-post-card *ngFor="let post of posts" [post]="post" class="my-5"></app-post-card>
         </div>
         <div class="suggestion-container mx-4">
             <div class="search__container p-5">

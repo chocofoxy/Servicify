@@ -1,26 +1,35 @@
-<mat-card>
-    <mat-card-content class="p-2">
-        <div class="top-container"> <img [src]="user.image" class="img-fluid profile-image rounded-circle mx-3"
-                width="70">
-            <div class="ml-3">
-                <h5 class="name"> {{ user.username }} </h5>
-                <p class="mail"> {{ user.email }} </p>
+<div>
+    <mat-card>
+        <mat-card-content class="p-2">
+            <div class="top-container"> <img [src]="user.image" class="img-fluid profile-image rounded-circle mx-3"
+                    width="70">
+                <div class="ml-3">
+                    <h5 class="name"> {{ user.username }} </h5>
+                    <p class="mail"> {{ user.email }} </p>
+                </div>
             </div>
-        </div>
-        <div class="middle-container d-flex justify-content-between align-items-center mt-3 p-2">
-            <div class="dollar-div px-3">
-                <div class="round-div"><i class="fa fa-dollar dollar"></i></div>
+            <div class="middle-container d-flex justify-content-between align-items-center mt-3 p-2">
+                <div class="dollar-div px-3">
+                    <div class="round-div"><i class="fa fa-dollar dollar"></i></div>
+                </div>
+                <div class="d-flex flex-column text-right mr-2"> <span class="current-balance">Current Balance</span>
+                    <span class="amount"><span class="dollar-sign">$</span>1476</span> </div>
             </div>
-            <div class="d-flex flex-column text-right mr-2"> <span class="current-balance">Current Balance</span> <span
-                    class="amount"><span class="dollar-sign">$</span>1476</span> </div>
-        </div>
-        <div *ngIf="!user.employee ; else dashboardLink" class="my-3">
-            do you want to become a Worker? <button mat-button>  Request now </button>
-        </div>
-        <ng-template #dashboardLink>
-            <div class="my-3">
-                switch to Worker profile ? <button mat-button> Go to dashboard </button>
-            </div>
-        </ng-template>
         </mat-card-content>
-</mat-card>
+    </mat-card>
+    <div class="my-4"></div>
+    <mat-card color="primary">
+        <mat-card-content>
+            <div *ngIf="!user.employee ; else dashboardLink" class="my-3 d-flex flex-column">
+               <span class="my-2"> Do you want to become a Worker ? </span>
+               <button  mat-stroked-button color="primary" class="mx-1" > Request now </button>
+            </div>
+            <ng-template #dashboardLink>
+                <div class="my-3 d-flex flex-column">
+                    <span class="my-2"> Switch to Worker profile ? </span> 
+                    <button  mat-stroked-button color="accent" class="mx-1" > Go to dashboard </button>
+                </div>
+            </ng-template>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -80,7 +80,7 @@ export class ClientIndexComponent implements OnInit {
   
     errorLoading(e) {
       console.log(e)
-      this.alertyfy.error("error loading data")
+      //this.alertyfy.error("error loading data")
     }
   
     searchWorker() {

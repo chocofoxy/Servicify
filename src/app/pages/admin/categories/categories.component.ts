@@ -22,7 +22,7 @@ export class CategoriesComponent implements OnInit {
   constructor(private adminService: AdminService, private suggestionService: SuggestionService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(AddCategoryComponent);
+    const dialogRef = this.dialog.open(AddCategoryComponent,{ width: '500px' , data: {}});
     dialogRef.afterOpened().subscribe( ()=> {
       console.log('open')
     })

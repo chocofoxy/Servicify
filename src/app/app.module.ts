@@ -43,6 +43,7 @@ import { HeaderClientComponent } from './components/header-client/header-client.
 import { ClientCardComponent } from './components/client-card/client-card.component';
 import { PostCardComponent } from './components/post-card/post-card.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RequestDialogComponent } from './components/request-dialog/request-dialog.component';
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ClientCardComponent,
     PostCardComponent,
     FooterComponent,
+    RequestDialogComponent,
   ],
   imports: [
     MatSelectModule,
