@@ -19,12 +19,14 @@ import { ReportsComponent } from "./pages/admin/reports/reports.component";
 import { AdminLayoutComponent } from "./layout/admin/admin.component";
 import { CategoriesComponent } from "./pages/admin/categories/categories.component";
 import { FeedbacksComponent } from "./pages/admin/feedbacks/feedbacks.component";
+import { WorkerIndexComponent } from "./pages/worker/index/index.component";
 
 
 const routes: Routes = [
   { path: "home", component: ClientIndexComponent, canActivate: [AuthedGuard] },
   { path: "profile", component: ProfileComponent, canActivate: [AuthedGuard] },
   { path: "settings", component: SettingsComponent, canActivate: [AuthedGuard] },
+  { path: "worker", component: WorkerIndexComponent, canActivate: [AuthedGuard] },
   //{ path: '', component: IndexComponent, canActivate: [GuestGuard] },
   { path: "auth", component: AuthComponent, canActivate: [GuestGuard] },
   {

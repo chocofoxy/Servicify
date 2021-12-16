@@ -411,6 +411,7 @@ body {
 
 .profile-card-6 {
     max-width: 300px;
+    max-height: 300px;
     background-color: #FFF;
     border-radius: 5px;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
@@ -439,8 +440,9 @@ body {
 .profile-card-6 .profile-position {
     position: absolute;
     color: rgba(255, 255, 255, 0.4);
-    left: 30px;
+    left: 0px;
     top: 100px;
+    width: 100%;
     transition: all 0.15s linear;
 }
 
@@ -449,7 +451,7 @@ body {
     bottom: 0px;
     left: 0px;
     right: 0px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 0, 0));
+    //background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 0, 0));
     color: #FFF;
     padding: 50px 0px 20px 0px;
     transition: all 0.15s linear;
@@ -473,7 +475,7 @@ body {
 }
 
 .profile-card-6:hover .profile-position {
-    left: 40px;
+    left: 0px;
 }
 
 .profile-card-6:hover .profile-overview {

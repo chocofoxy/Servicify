@@ -44,6 +44,7 @@ import { ClientCardComponent } from './components/client-card/client-card.compon
 import { PostCardComponent } from './components/post-card/post-card.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RequestDialogComponent } from './components/request-dialog/request-dialog.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { RequestDialogComponent } from './components/request-dialog/request-dial
     RequestDialogComponent,
   ],
   imports: [
+    MatTabsModule,
     MatSelectModule,
     MatSnackBarModule,
     MatDialogModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/class/user';
@@ -16,6 +16,8 @@ import { RequestDialogComponent } from '../request-dialog/request-dialog.compone
 export class ClientCardComponent implements OnInit {
 
   user: User;
+
+  @Input('worker') worker =  false ;
 
   constructor(private userService: UserService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
