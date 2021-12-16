@@ -29,6 +29,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatListModule } from '@angular/material/list';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { CategoriesComponent } from './pages/admin/categories/categories.component';
+import { MatCardModule } from '@angular/material/card';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PostFormComponent } from './components/post-form/post-form.component';
+import { WorkerCardComponent } from './components/worker-card/worker-card.component';
+import { MatSelectModule } from '@angular/material/select';
+import { HeaderClientComponent } from './components/header-client/header-client.component';
+import { ClientCardComponent } from './components/client-card/client-card.component';
+import { PostCardComponent } from './components/post-card/post-card.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -50,8 +64,22 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     AuthComponent,
     HeaderComponent,
     AdminLayoutComponent,
+    CategoriesComponent,
+    AddCategoryComponent,
+    PostFormComponent,
+    WorkerCardComponent,
+    HeaderClientComponent,
+    ClientCardComponent,
+    PostCardComponent,
+    FooterComponent,
   ],
   imports: [
+    MatSelectModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatCardModule,
+    MatPaginatorModule,
+    MatListModule,
     MatFormFieldModule,
     MatButtonModule,
     BrowserAnimationsModule,
@@ -72,7 +100,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],
   bootstrap: [AppComponent]
 })

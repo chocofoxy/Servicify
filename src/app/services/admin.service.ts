@@ -58,6 +58,24 @@ export class AdminService {
     })
   }
 
+  addCategory(form) {
+    return this.http.post(`/service/api/auth/addCategorie`,form )
+    .toPromise()
+    .then( (response) => {
+      console.log(response)
+      return response
+    })
+  }
+
+  deleteCategory(id) {
+    return this.http.delete(`/service/api/auth/deleteCategorie/${id}/` )
+    .toPromise()
+    .then( (response) => {
+      console.log(response)
+      return response
+    })
+  }
+
   rejectRequest(id) {
     return this.http.put(`/service/api/auth/refuse_role/${id}/`,{})
     .toPromise()

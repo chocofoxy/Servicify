@@ -1,67 +1,10 @@
-<nav *ngIf="!isLogged(); else loggedHeader" class="navbar navbar-expand-lg navbar-light " style="margin:0 ; 
-filter: drop-shadow(0px 1px 15px rgba(0, 0, 0, 0.05));  ">
-  <div class="container" >
-    <a class="navbar-brand serviceify" href="/home"> Serviceify</a>
-    <div class="social-media order-lg-last">
-      <p class="mb-0 d-flex">
-        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i
-              class="sr-only">Facebook</i></span></a>
-        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i
-              class="sr-only">Twitter</i></span></a>
-        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i
-              class="sr-only">Instagram</i></span></a>
-      </p>
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="fa fa-bars"></span> Menu
-    </button>
-    <div class="collapse navbar-collapse" id="ftco-nav">
-      <ul class="navbar-nav  ml-auto mr-md-3">
-        <li class="nav-item active"><a href="#" class="nav-link"><span style="font-size: 24px;">Home</span></a></li>
-        <li class="nav-item"><a href="#" class="nav-link"><span style="font-size: 24px;"> About</span></a></li>
-        <li class="nav-item"><a href="#" class="nav-link"><span style="font-size: 24px;"> Work</span></a></li>
-        <li class="nav-item"><a href="#" class="nav-link"><span style="font-size: 24px;"> Blog</span></a></li>
-        <li class="nav-item"><a href="#" class="nav-link"><span style="font-size: 24px;"> Contact</span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<ng-template #loggedHeader >
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin:0">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand mb-0 serviceify" routerLink="/">Serviceify</a>
-        <div class="collapse navbar-collapse" id="navbarText">
-        </div>
-        <form class="d-flex">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
-                  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-                </svg>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
-                  <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
-                </svg>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" (click)="logout()" tabindex="-1" aria-disabled="true">
-                <!-- <i class="bi bi-box-arrow-right"></i> -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-                  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </form>
-      </div>
-    </div>
-  </nav>
-</ng-template>
+<mat-toolbar>
+  <span> Dashboard </span>
+  <span class="mx-auto" ></span>
+  <button  color="warn" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>settings</mat-icon>
+  </button>
+  <button color="warn" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>notifications</mat-icon>
+  </button>
+</mat-toolbar>

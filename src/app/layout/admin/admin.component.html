@@ -1,11 +1,30 @@
-<mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>
+<mat-drawer-container class="sidenav-container">
+    <mat-drawer mode="side" class="sidenav shadow-lg" opened>
+        <h1 class="title"> Servicify </h1>
+        <mat-divider></mat-divider>
         <mat-nav-list>
-            <a mat-list-item [href]="link.href" *ngFor="let link of links"> {{ link.name }} </a>
-         </mat-nav-list>
+            <a mat-list-item *ngFor="let link of links" class="sidenav-link my-4" [routerLink]="[link.path]">
+                <mat-icon md-list-icon class="mx-4"> {{ link.icon }} </mat-icon>
+                <span class="title" md-line>{{ link.title }}</span>
+            </a>
+        </mat-nav-list>
+        <div class='d-flex'>
+            <button mat-raised-button class="logout" (click)="logout()"> Logout </button>
+        </div>
     </mat-drawer>
-    <mat-drawer-content>
-       <app-header></app-header>
-       <router-outlet></router-outlet>
+    <mat-drawer-content class='bg' >
+        <app-header></app-header>
+        <div class="p-5">
+            <router-outlet ></router-outlet>
+        </div>
+        <div class="wave-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+              <path
+                fill="#F5F5F5"
+                fill-opacity="1"
+                d="M0,192L48,202.7C96,213,192,235,288,240C384,245,480,235,576,197.3C672,160,768,96,864,112C960,128,1056,224,1152,245.3C1248,267,1344,213,1392,186.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+              />
+            </svg>
+          </div>
     </mat-drawer-content>
 </mat-drawer-container>

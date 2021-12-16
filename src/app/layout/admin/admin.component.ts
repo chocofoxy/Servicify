@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,18 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  link = [
-    { name: 'Home' , href: "/home"},
-    { name: 'Clients' , href: "/clients"},
-    { name: 'Workers' , href: "/workers"},
-    { name: 'Reports' , href: "/reports"},
-    { name: 'Categories' , href: "/categories"},
-    { name: 'Requests' , href: "/requests"},
+  links = [
+    { title: 'Home' , path: "/admin/home", class: "" , icon: "dashboard"},
+    { title: 'Clients' , path: "/admin/clients", class: "" , icon: "person"},
+    { title: 'Workers' , path: "/admin/workers", class: "" , icon: "group"},
+    { title: 'Reports' , path: "/admin/reports", class: "" , icon: "feedback"},
+    { title: 'Feedbacks' , path: "/admin/feedback", class: "" , icon: "assignment"},
+    { title: 'Categories' , path: "/admin/categories", class: "" , icon: "reorder"},
+    { title: 'Requests' , path: "/admin/requests", class: "" , icon: "assignment"},
   ]
 
-  constructor() {}
+  constructor(private userService:UserService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+  }
+
+  isMobileMenu() {
+      if ( window.innerWidth > 991) {
+          return false;
+      }
+      return true;
+  };
+
+  logout() {
+    this.userService.logout()
+    .then(() => this.router.navigate(['/']))
+    .catch((e) => console.error(e))
   }
 
 }

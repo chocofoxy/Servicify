@@ -1,4 +1,87 @@
-.example-container {
+@import '~@angular/material/theming';
+// Copy the palettes from your selected theme (usually theme.scss).
+$app-primary: mat-palette($mat-red);
+
+.sidenav-container {
     width: 100%;
     height: 100vh;
 }
+
+.sidenav {
+    padding: 20px;
+    width: 300px;
+}
+
+.title , .sidenav-link {
+    color: white;
+}
+
+.logout {
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+}
+
+mat-drawer {
+    background-color: mat-color($app-primary);
+}
+
+
+.logo {
+    font-family: "segoe ui", light;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .bg {
+    background-image: linear-gradient( 68.3deg,  rgba(236,54,110,1) 0.4%, mat-color($app-primary) 100.2% );
+    background-size: cover;
+  }
+  
+  .wave-container > svg {
+    width: 100%;
+    transform-origin: bottom;
+    display: block;
+    animation: animateWave 1000ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+  .bg-grey {
+    /*background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);*/
+    /*background-image: linear-gradient(to top, rgba(245, 246, 252, 0.52), #6f86d6 ), 
+     url("~assets/mountains-14481-1920x1200.jpg");*/
+    background-image: linear-gradient(to top, #d8a434 0%, #f4cc50 100%);
+    background-size: contain;
+  }
+  .top {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+  }
+  .wave-container {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /*background-image: linear-gradient(to top, rgba(245, 246, 252, 0.52), #6f86d6 ), 
+     url("~assets/mountains-14481-1920x1200.jpg");*/
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .menu-background {
+    filter: hue-rotate(10deg) brightness(140%);
+  }
+  
+  @keyframes animateWave {
+    0% {
+      transform: scale(1, 0);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }

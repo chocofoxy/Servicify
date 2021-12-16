@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.adminService.login(this.user)
       .then( () => {
           this.alertyfy.success("You logged in successfully");
-          this.router.navigate(['/administration/home'])
+          this.router.navigate(['/admin/home'])
         })
       .catch((e) => {
         this.alertyfy.error("check your credentials");

@@ -46,7 +46,7 @@ export class AuthComponent implements OnInit {
     this.userService.login(this.user)
       .then(() => {
         this.alertyfy.success("You logged in successfully");
-        this.router.navigate(['/'])
+        this.router.navigate(['/home'])
       })
       .catch((e) => {
         this.alertyfy.error("check your credentials");

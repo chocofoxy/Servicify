@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { AdminService } from 'src/app/services/admin.service';
+
+
 
 @Component({
   selector: 'app-clients',
@@ -8,16 +12,35 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class ClientsComponent implements OnInit {
 
-  header = [ "id" , "username" , "prenom"  , "email", "Worker" , "Tel" , "Address" ]
-  clients = []
+  displayedColumns: string[] = ['id', 'nom', 'prenom', 'email'];
+  clients = new MatTableDataSource([])
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  search = ''
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService) { }
 
   ngOnInit() {
-    this.adminService.clients().then( response => {
-      this.clients = response
+    this.clients.filterPredicate = (data: any , filter: string) => {
+      return data.nom.includes(filter);
+    };
+
+    this.adminService.clients().then(response => {
+      this.clients.data = response
     })
-    .catch((e) => console.log(e))
+      .catch((e) => console.log(e))
+  }
+
+  ngAfterViewInit() {
+    this.clients.paginator = this.paginator;
+
+  }
+
+  clear() {
+    this.search = ''
+  }
+
+  filter() {
+    this.clients.filter = this.search
   }
 
 }

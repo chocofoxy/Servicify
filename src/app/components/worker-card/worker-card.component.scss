@@ -1,0 +1,66 @@
+
+
+.card h2 {
+    margin: 0;
+    padding: 0 1rem;
+  }
+  .card .title {
+    padding: 1rem;
+    text-align: right;
+    color: #5957f9;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .card .desc {
+    padding: 0.5rem 1rem;
+    font-size: 12px;
+  }
+  .card .actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+  .card img {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto;
+  }
+  
+  .card-text {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+  
+  .title-total {
+    padding: 2.5em 1.5em 1.5em 1.5em;
+  }
+  
+  path {
+    fill: white;
+  }
+  
+  .img-portada {
+    width: 100%;
+  }
+  
+  .top-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .portada {
+    width: 100%;
+    height: 100%;
+    transform: rotate(180deg);
+    z-index: 1;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-image: url("https://demos.creative-tim.com/argon-design-system-pro-react/static/media/p2.7536ee52.svg");
+    background-position: bottom center;
+    background-size: cover;
+  }
+  
+  
+  

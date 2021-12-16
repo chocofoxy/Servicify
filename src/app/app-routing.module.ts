@@ -17,6 +17,8 @@ import { WorkersComponent } from "./pages/admin/workers/workers.component";
 import { RequestsComponent } from "./pages/admin/requests/requests.component";
 import { ReportsComponent } from "./pages/admin/reports/reports.component";
 import { AdminLayoutComponent } from "./layout/admin/admin.component";
+import { CategoriesComponent } from "./pages/admin/categories/categories.component";
+import { FeedbacksComponent } from "./pages/admin/feedbacks/feedbacks.component";
 
 
 const routes: Routes = [
@@ -33,10 +35,12 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminLayoutComponent ,
-    //canActivate: [AuthedGuard],
+    canActivate: [AuthedGuard],
     children: [
       { path: "home", component: AdminIndexComponent, canActivate: [AdminGuard] },
-      { path: "clients", component: ClientsComponent, /*canActivate: [AdminGuard]*/ },
+      { path: "clients", component: ClientsComponent, canActivate: [AdminGuard] },
+      { path: "feedbacks", component: FeedbacksComponent, canActivate: [AdminGuard] },
+      { path: "categories", component: CategoriesComponent, canActivate: [AdminGuard] },
       { path: "workers", component: WorkersComponent, canActivate: [AdminGuard] },
       { path: "requests", component: RequestsComponent, canActivate: [AdminGuard] },
       { path: "reports", component: ReportsComponent, canActivate: [AdminGuard] },

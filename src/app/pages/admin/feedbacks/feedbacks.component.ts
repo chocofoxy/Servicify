@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbacksComponent implements OnInit {
 
+  search = ''
+
   constructor() { }
 
   ngOnInit(): void {

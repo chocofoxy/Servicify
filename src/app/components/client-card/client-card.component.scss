@@ -1,0 +1,339 @@
+@import '~@angular/material/_theming.scss';
+
+@include mat-core();
+
+// default theme:
+$primary: mat-color(mat-palette($mat-indigo));
+
+
+
+.wraper {
+    background: rgb(247, 245, 245);
+    width: 100%;
+    height: calc(100%);
+    background-repeat: no-repeat;
+    background-size: contain !important;
+    background-position: 100% !important;
+    display: flex;
+    padding: 3% 5% 3% 5%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .tab-pane {
+    height: 850px;
+    overflow-y: scroll;
+    width: 100%;
+    margin-top: 10px;
+    overflow-y: scroll;
+  }
+  
+  .tab-pane::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .tab-pane::-webkit-scrollbar-track {
+    background-color: #f7f4f4;
+    border-radius: 100px;
+  }
+  
+  .tab-pane::-webkit-scrollbar-thumb {
+    background-color: #5957f9;
+    border-radius: 100px;
+  }
+  
+  .tab-content {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .side {
+    width: 25%;
+    height: auto;
+  }
+  
+  .main {
+    width: 60%;
+    height: 1000px;
+  }
+  
+  .container {
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.05);
+    border-radius: 32px;
+    background: white;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 33px;
+    padding: 2rem !important
+  }
+  
+  .top-container {
+    display: flex;
+    align-items: center
+  }
+  
+   @import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
+  
+   .search__title {
+       font-size: 22px;
+       font-weight: 900;
+       text-align: center;
+       color: $primary;
+  }
+   .search__input {
+       width: 100%;
+       padding: 12px 24px;
+       background-color: transparent;
+       transition: transform 250ms ease-in-out;
+       font-size: 14px;
+       line-height: 18px;
+       color: #575756;
+       background-color: transparent;
+      /* background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg);
+       */
+       background-repeat: no-repeat;
+       background-size: 18px 18px;
+       background-position: 95% center;
+       border-radius: 50px;
+       border: 1px solid #575756;
+       transition: all 250ms ease-in-out;
+       backface-visibility: hidden;
+       transform-style: preserve-3d;
+  }
+   .search__input::placeholder {
+       color: color(#575756 a(0.8));
+       text-transform: uppercase;
+       letter-spacing: 1.5px;
+  }
+   .search__input:hover, .search__input:focus {
+       padding: 12px 0;
+       outline: 0;
+       border: 1px solid transparent;
+       border-bottom: 1px solid #575756;
+       border-radius: 0;
+       background-position: 100% center;
+  }
+  
+  .profile-image {
+    border: 2px solid $primary
+  }
+  
+  .name {
+    font-size: 15px;
+    font-weight: bold;
+    color: #272727;
+    position: relative;
+    top: 8px
+  }
+  
+  .mail {
+    font-size: 14px;
+    color: grey;
+    position: relative;
+    top: 2px
+  }
+  
+  .middle-container {
+    background-color: #eee;
+    border-radius: 12px
+  }
+  
+  .dollar-div {
+    background-color: $primary;
+    padding: 12px;
+    border-radius: 10px
+  }
+  
+  .round-div {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center
+  }
+  
+  .dollar {
+    font-size: 16px !important;
+    color: $primary !important;
+    font-weight: bold !important
+  }
+  
+  .current-balance {
+    font-size: 15px;
+    color: #272727;
+    font-weight: bold
+  }
+  
+  .amount {
+    color: $primary;
+    font-size: 16px;
+    font-weight: bold
+  }
+  
+  .dollar-sign {
+    font-size: 16px;
+    color: #272727;
+    font-weight: bold
+  }
+  
+  
+  .link-active,
+  .link-span:hover {
+    text-decoration: none;
+    padding-left: 10px;
+    border-left: 2px solid$primary;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: $primary !important;
+    margin-left: 2px
+  }
+  
+  .link-span {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #272727
+  }
+  
+  
+  body {
+    font-family: "Open Sans", sans-serif;
+    height: 100vh;
+    /* background: url("https://i.imgur.com/HgflTDf.jpg") 50% fixed; */
+    background-size: cover;
+  }
+  
+  @keyframes spinner {
+    0% {
+      transform: rotateZ(0deg);
+    }
+  
+    100% {
+      transform: rotateZ(359deg);
+    }
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  
+  .request {
+    border-radius: 2px 2px 5px 5px;
+    padding: 10px 20px 20px 20px;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    padding-bottom: 80px;
+  }
+  
+  .request.loading button {
+    max-height: 100%;
+    padding-top: 50px;
+  }
+  
+  .request.loading button .spinner {
+    opacity: 1;
+    top: 40%;
+  }
+  
+  .request.ok button {
+    background-color: #8bc34a;
+  }
+  
+  .request.ok button .spinner {
+    border-radius: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    height: 20px;
+    animation: none;
+    transform: rotateZ(-45deg);
+  }
+  
+  .request input {
+    display: block;
+    padding: 15px 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+    transition: border-width 0.2s ease;
+    border-radius: 2px;
+    color: #ccc;
+  }
+  
+  .request input+i.fa {
+    color: #fff;
+    font-size: 1em;
+    position: absolute;
+    margin-top: -47px;
+    opacity: 0;
+    left: 0;
+    transition: all 0.1s ease-in;
+  }
+  
+  .request input:focus {
+    outline: none;
+    color: #444;
+    border-color: #5A189A;
+    border-left-width: 35px;
+  }
+  
+  .request input:focus+i.fa {
+    opacity: 1;
+    left: 30px;
+    transition: all 0.25s ease-out;
+  }
+  
+  .request a {
+    font-size: 0.8em;
+    color: #5A189A;
+    text-decoration: none;
+  }
+  
+  .request .title {
+    color: #444;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0 30px 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+  }
+  
+  .request button {
+    background: #5A189A;
+    width: 100%;
+  }
+  
+  .request button .spinner {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border: 4px solid #fff;
+    border-top-color: rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+    left: 50%;
+    top: 0;
+    opacity: 0;
+    margin-left: -20px;
+    margin-top: -20px;
+    animation: spinner 0.6s infinite linear;
+    transition: top 0.3s 0.3s ease, opacity 0.3s 0.3s ease, border-radius 0.3s ease;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+  }
+  
+  .request:not(.loading) button:hover {
+    box-shadow: 0px 1px 3px #5A189A;
+  }
+  
+  .request:not(.loading) button:focus {
+    border-bottom-width: 4px;
+  }
+  
