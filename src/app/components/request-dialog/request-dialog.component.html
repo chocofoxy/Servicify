@@ -1,1 +1,32 @@
-<p>request-dialog works!</p>
+<h1 mat-dialog-title> Request to be a worker </h1>
+<div mat-dialog-content class="d-flex flex-column">
+  <p>What do you want to work?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Job Title </mat-label>
+    <input matInput [(ngModel)]="request.title">
+  </mat-form-field>
+  <p>What's the category of your job?</p>
+  <mat-form-field appearance="fill">
+    <mat-label> Category</mat-label>
+    <mat-select  [(ngModel)]="request.category" >
+      <mat-option *ngFor="let category of categories" [value]="category.id"> {{ category.name}} </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p> Your disponibility for the job</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Disponibility</mat-label>
+    <mat-select [(ngModel)]="request.disponibility">
+      <mat-option value="fulltime">Full-Time</mat-option>
+      <mat-option value="parttime">Part-Time</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p> A breif discription</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Discription</mat-label>
+    <textarea matInput [(ngModel)]="request.content" placeholder="Ex. It makes me feel..."></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()" color="warn"> Cancel </button>
+  <button mat-button (click)="sendRequest()" color="primary" cdkFocusInitial> Send Request</button>
+</div>

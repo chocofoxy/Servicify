@@ -103,7 +103,7 @@ import { RequestDialogComponent } from './components/request-dialog/request-dial
       useClass: TokenInterceptor,
       multi: true
     },
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+    //{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],
   bootstrap: [AppComponent]
 })

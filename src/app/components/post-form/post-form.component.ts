@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AlertyfyService } from 'src/app/services/alertyfy.service';
 import { PostService } from 'src/app/services/post.service';
+import { SuggestionService } from 'src/app/services/suggestion.service';
 
 @Component({
   selector: 'app-post-form',
@@ -12,22 +13,26 @@ import { PostService } from 'src/app/services/post.service';
 export class PostFormComponent implements OnInit {
 
   postform: FormGroup;
-  post = { title: '' , content: ''}
+  post = { title: '' , content: '' , category: ''}
+  categories = []
 
-  constructor(private fb: FormBuilder, private postService:PostService, private alertyfy:AlertyfyService, private _snackBar: MatSnackBar) {}
+  constructor(private fb: FormBuilder,private suggestionService:SuggestionService , private postService:PostService, private alertyfy:AlertyfyService, private _snackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.postform = this.fb.group({
       title: [''],
       content: ['']
     })
+    this.suggestionService.listCategories().then( (response:any) => {
+      this.categories = response
+    }).catch(e => console.log(e))
   }
 
   postClient() {
     this.postService.create_post(this.post) 
     .then(() => { 
       this.openSnackBar("Your post have been sent") 
-      this.post = { title: '' , content: ''}
+      this.post = { title: '' , content: '' , category: ''}
     })     
     .catch((e) => {
       this.alertyfy.error("check your credentials");

@@ -14,13 +14,9 @@ import { UserService } from 'src/app/services/user.service';
 export class ClientIndexComponent implements OnInit {
 
   links = [
-    { title: 'Home' , path: "/admin/home", class: "" , icon: "dashboard"},
-    { title: 'Clients' , path: "/admin/clients", class: "" , icon: "person"},
-    { title: 'Workers' , path: "/admin/workers", class: "" , icon: "group"},
-    { title: 'Reports' , path: "/admin/reports", class: "" , icon: "feedback"},
-    { title: 'Feedbacks' , path: "/admin/feedback", class: "" , icon: "assignment"},
-    { title: 'Categories' , path: "/admin/categories", class: "" , icon: "reorder"},
-    { title: 'Requests' , path: "/admin/requests", class: "" , icon: "assignment"},
+    { title: 'Home' , path: "/home", class: "" , icon: "dashboard"},
+    { title: 'Profile' , path: "/profile", class: "" , icon: "person"},
+    { title: 'Dashboard' , path: "/worker", class: "" , icon: "group"},
   ]
     requestform: FormGroup;
     user: User;

@@ -1,58 +1,26 @@
-<div>
-    <div class="card">
-      <div class="card-text">
-        <div class="portada">
-  
+<div class="profile-card-6"><img src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-6.jpg" class="img img-responsive">
+    <div class="profile-name">JOHN
+        <br>DOE</div>
+    <div class="profile-position">Lorem Ipsum Donor</div>
+    <div class="profile-overview">
+        <div> 
+            <button> </button>
         </div>
-        <div class="title-total">
-          <div>
-            <div class="title"> {{ worker.job | titlecase }} </div>
-            <div class="top-container">
-              <div class="img-container">
-                <img [src]=" 'http://159.223.28.104' + worker.client.image"
-                  class="img-fluid profile-image rounded-circle mx-3" width="70">
-              </div>
-              <div class="ml-3">
-                <h2>{{ worker.client.nom | titlecase }} {{ worker.client.prenom | titlecase }} </h2>
-              </div>
+        <div class="profile-overview">
+            <div class="row text-center">
+                <div class="col-4">
+                    <h3>1</h3>
+                    <p>Rank</p>
+                </div>
+                <div class="col-4">
+                    <h3>50</h3>
+                    <p>Matches</p>
+                </div>
+                <div class="col-4">
+                    <h3>35</h3>
+                    <p>Goals</p>
+                </div>
             </div>
-          </div>
-          <div class="desc my-2 pa-5"> {{ worker.description }} </div>
-          <div class="actions">
-            <a class="btn btn-primary" [routerLink]="['/worker/profile', worker.id]">Profile</a>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sendTicket">Send ticket</button>
-          </div>
         </div>
-  
-      </div>
-  
     </div>
-  
-  
-    <div class="modal fade" id="sendTicket" tabindex="-1" aria-labelledby="sendTicket" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle"> Send ticket</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="ticketForm">
-              <div>
-                <label for="disabledSelect"> Description</label>
-  
-              </div>
-              <textarea type="text" [(ngModel)]="post.content" name="content" [ngModelOptions]="{standalone: true}"
-                class=""></textarea>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" (click)="sendTicket()"> Send</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>

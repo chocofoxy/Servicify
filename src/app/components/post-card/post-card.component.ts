@@ -7,11 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PostCardComponent implements OnInit {
 
-  @Input('post') post = {}
-
+  @Input('post') post 
+  comments = 0
+  
   constructor() { }
 
   ngOnInit(): void {
+    this.comments = this.post.commentaires.length()
   }
 
 }

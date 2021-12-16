@@ -76,6 +76,15 @@ export class AdminService {
     })
   }
 
+  listFeedback() {
+    return this.http.get(`/service/api/auth/contactUS/liste` )
+    .toPromise()
+    .then( (response) => {
+      console.log(response)
+      return response
+    })
+  }
+
   rejectRequest(id) {
     return this.http.put(`/service/api/auth/refuse_role/${id}/`,{})
     .toPromise()

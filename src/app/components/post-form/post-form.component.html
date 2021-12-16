@@ -7,12 +7,11 @@
             <input [(ngModel)]="post.title" matInput>
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <mat-label>Category</mat-label>
-            <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
+            <mat-label> Category</mat-label>
+            <mat-select  [(ngModel)]="post.category" >
+              <mat-option *ngFor="let category of categories" [value]="category.id"> {{ category.name}} </mat-option>
             </mat-select>
-        </mat-form-field>
+          </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Description</mat-label>
             <textarea [(ngModel)]="post.content" matInput></textarea>
