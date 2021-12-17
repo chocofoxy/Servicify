@@ -32,6 +32,7 @@ export class PostFormComponent implements OnInit {
     this.postService.create_post(this.post) 
     .then(() => { 
       this.openSnackBar("Your post have been sent") 
+      this.postService.posts_list()
       this.post = { title: '' , content: '' , category: ''}
     })     
     .catch((e) => {
@@ -41,7 +42,7 @@ export class PostFormComponent implements OnInit {
   }
 
   openSnackBar(message: string) {
-    this._snackBar.open(message, 'close', { duration: 80 });
+    this._snackBar.open(message, 'close', { duration: 500 });
   }
 
 

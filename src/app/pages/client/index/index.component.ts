@@ -32,7 +32,7 @@ export class ClientIndexComponent implements OnInit {
     constructor(
       private fb: FormBuilder,
       private userService: UserService,
-      private postService: PostService,
+      public postService: PostService,
       private alertyfy:AlertyfyService, 
       private suggetionService: SuggestionService
     ) {}

@@ -45,6 +45,12 @@ import { PostCardComponent } from './components/post-card/post-card.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RequestDialogComponent } from './components/request-dialog/request-dialog.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { AddCommentComponent } from './components/add-comment/add-comment.component';
+import { ReportUserComponent } from './components/report-user/report-user.component';
+import { SendTicketComponent } from './components/send-ticket/send-ticket.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -75,8 +81,14 @@ import { MatTabsModule } from '@angular/material/tabs';
     PostCardComponent,
     FooterComponent,
     RequestDialogComponent,
+    AddCommentComponent,
+    ReportUserComponent,
+    SendTicketComponent,
   ],
   imports: [
+    MatMenuModule,
+    MatExpansionModule,
+    MatSlideToggleModule,
     MatTabsModule,
     MatSelectModule,
     MatSnackBarModule,

@@ -1,1 +1,91 @@
-<p>settings works!</p>
+<div class='bg'>
+    <app-header-client></app-header-client>
+    <div class="py-4">
+        <div class="main d-flex justify-content-center py-4">
+            <div class="sidebar mx-4 p-2">
+                <app-client-card></app-client-card>
+                <mat-card class="my-4">
+                    <mat-nav-list>
+                        <a mat-list-item *ngFor="let link of links" class="sidenav-link my-4"
+                            [routerLink]="[link.path]">
+                            <mat-icon md-list-icon class="mx-4"> {{ link.icon }} </mat-icon>
+                            <span class="title" md-line> {{ link.title }} </span>
+                        </a>
+                    </mat-nav-list>
+                </mat-card>
+            </div>
+            <mat-card class="post-container p-2">
+                <div class="wraper">
+                    <div class="mt-5 mb-5">
+                        <div class="row">
+                            <div class="col-md-4 border-right">
+                                <div class="d-flex container flex-column align-items-center text-center p-3 py-5"><img
+                                        width="300" height="300" class="rounded-circle mt-5"
+                                        [src]=" preview ? preview : 'http://159.223.28.104' + user.image">
+                                    <label class="uploadLabel" for="upload"> Change image</label>
+                                    <input (change)="onChange($event)" type="file" id="upload"  hidden class="uploadFile img"
+                                        value="Upload Photo">
+                                        
+                                    <span class="font-weight-bold"> {{ user.username }} </span><span
+                                        class="text-black-50">{{ user.email }}</span><span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="p-3 p-5 container">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="text-right">Profile Settings</h4>
+                                        <mat-slide-toggle [(ngModel)]="test" color='accent'> Edit</mat-slide-toggle>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-6"><label class="labels">Name</label><input
+                                                [(ngModel)]="profile.nom"  [ngModelOptions]="{standalone: true}"
+                                                type="text" [value]='user.nom' class="form-control"
+                                                placeholder="first name"  [readonly]="test"></div>
+                                        <div class="col-md-6"><label class="labels">Surname</label><input
+                                                [(ngModel)]="profile.prenom"  [ngModelOptions]="{standalone: true}"
+                                                type="text" class="form-control" [value]='user.prenom'
+                                                placeholder="surname"  [readonly]="test"></div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-12"><label class="labels">PhoneNumber</label><input
+                                                type="text" class="form-control" placeholder="enter phone number"
+                                                [(ngModel)]="profile.numero_tel" [ngModelOptions]="{standalone: true}"
+                                                [value]='user.numero_tel' [readonly]="test"></div>
+                                        <div class="col-md-12"><label class="labels">Address</label><input type="text"
+                                                class="form-control" [(ngModel)]="profile.adress"
+                                                [ngModelOptions]="{standalone: true}" placeholder="enter address"
+                                                [value]='user.adress' [readonly]="test"></div>
+                                        <div class="col-md-12"><label class="labels">Email ID</label><input type="text"
+                                                class="form-control" placeholder="enter email id" [value]='user.email'
+                                                [readonly]="test"></div>
+                                        <div class="col-md-12"><label class="labels">Education</label><input type="text"
+                                                class="form-control" placeholder="education" value="" [readonly]="test">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6"><label class="labels">Country</label><input type="text"
+                                                class="form-control" placeholder="country" value="" [readonly]="test">
+                                        </div>
+                                        <div class="col-md-6"><label class="labels">State/Region</label><input
+                                                type="text" class="form-control" value="" placeholder="state"
+                                                [readonly]="test"></div>
+                                    </div>
+                                    <div class="mt-5 text-center"><button type="button" mat-button color="primary" (click)="save()">Save
+                                            Profile</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+                
+            </mat-card>
+            
+        </div>
+    </div>
+    <div>
+        <app-footer></app-footer>
+    </div>
+</div>

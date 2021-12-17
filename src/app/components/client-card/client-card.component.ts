@@ -17,7 +17,7 @@ export class ClientCardComponent implements OnInit {
 
   user: User;
 
-  @Input('worker') worker =  false ;
+  @Input('worker') worker = false ;
 
   constructor(private userService: UserService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
@@ -37,6 +37,9 @@ export class ClientCardComponent implements OnInit {
   
   ngOnInit(): void {
     this.user = this.userService.getUser();
+    this.userService.getProfile().then((profile: any) => {
+      //this.user.image = profile.image.replace('localhost','159.223.28.104')
+    }).catch((e) => console.log(e))
   }
 
 }

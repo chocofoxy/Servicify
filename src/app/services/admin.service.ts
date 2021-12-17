@@ -59,7 +59,7 @@ export class AdminService {
   }
 
   addCategory(form) {
-    return this.http.post(`/service/api/auth/addCategorie`,form )
+    return this.http.post(`/service/api/auth/addCategorie/`,form )
     .toPromise()
     .then( (response) => {
       console.log(response)

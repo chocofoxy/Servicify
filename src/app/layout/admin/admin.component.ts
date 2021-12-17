@@ -14,7 +14,7 @@ export class AdminLayoutComponent implements OnInit {
     { title: 'Clients' , path: "/admin/clients", class: "" , icon: "person"},
     { title: 'Workers' , path: "/admin/workers", class: "" , icon: "group"},
     { title: 'Reports' , path: "/admin/reports", class: "" , icon: "feedback"},
-    { title: 'Feedbacks' , path: "/admin/feedback", class: "" , icon: "assignment"},
+    { title: 'Feedbacks' , path: "/admin/feedbacks", class: "" , icon: "assignment"},
     { title: 'Categories' , path: "/admin/categories", class: "" , icon: "reorder"},
     { title: 'Requests' , path: "/admin/requests", class: "" , icon: "assignment"},
   ]

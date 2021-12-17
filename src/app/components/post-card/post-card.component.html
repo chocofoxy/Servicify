@@ -1,16 +1,40 @@
 <mat-card class="my-4" *ngIf="post">
-    <mat-card-header>
-        <div mat-card-avatar >  <img [src]=" 'http://159.223.28.104' + post.client.image" class="img-fluid profile-image rounded-circle"
-            width="70"> </div>
-        <mat-card-title> {{ post.client.nom }} </mat-card-title>
-        <mat-card-subtitle> {{ post.client.email }}</mat-card-subtitle>
-    </mat-card-header>
+    <div class="d-flex justify-content-between">
+        <mat-card-header>
+            <div mat-card-avatar> <img [src]=" 'http://159.223.28.104' + post.client.image"
+                    class="img-fluid profile-image rounded-circle" width="70"> </div>
+            <mat-card-title> {{ post.client.nom }} </mat-card-title>
+            <mat-card-subtitle> {{ post.client.email }}</mat-card-subtitle>
+        </mat-card-header>
+        <div>
+            <button [matMenuTriggerFor]="menu" mat-icon-button
+                aria-label="Example icon button with a vertical three dot icon">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button [disabled]="post.client.id == user.id" mat-menu-item> Delete </button>
+            </mat-menu>
+        </div>
+    </div>
     <mat-card-content>
         <p class="p-2">
             {{ post.content }}
         </p>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-description>
+                    Read comments ({{ countComments(post.commentaires) }})
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+                <mat-list-item *ngFor="let comment of post.commentaires" role="listitem">
+                    <div class="d-flex align-items-center mx-2"> <div> <img [src]=" 'http://159.223.28.104' + comment.author.image"
+                        class="img-fluid profile-image rounded-circle" width="30"> </div>  <div class="mx-2 d-flex flex-colunm justify-content-around"><span> {{ comment.author.nom }} : </span></div> </div>  {{ comment.content }}
+                </mat-list-item>
+            </mat-list>
+        </mat-expansion-panel>
     </mat-card-content>
-    <mat-card-actions align="end" >
-        <button mat-button color="accent"> {{ comments }} COMMENTS </button>
+    <mat-card-actions align="end">
+        <button mat-button (click)="comment()" color="accent"> Comment </button>
     </mat-card-actions>
 </mat-card>

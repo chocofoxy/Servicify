@@ -39,7 +39,7 @@ export class WorkerIndexComponent implements OnInit {
   
     ngOnInit() {
       this.user = this.userService.getUser();
-      this.postService.posts_list()
+      this.suggetionService.recommendedPosts()
       .then((response:any) => {
         this.posts = response
       })

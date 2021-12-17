@@ -19,4 +19,8 @@ export class HeaderClientComponent implements OnInit {
     .catch((e) => console.error(e))
   }
 
+  settings(){    
+    this.router.navigate(['/settings'])
+  }
+
 }

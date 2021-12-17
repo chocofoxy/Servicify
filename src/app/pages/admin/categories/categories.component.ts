@@ -27,7 +27,7 @@ export class CategoriesComponent implements OnInit {
       console.log('open')
     })
     dialogRef.afterClosed().subscribe(() => {
-      console.log('close')
+      this.getList()
     });
   }
 
