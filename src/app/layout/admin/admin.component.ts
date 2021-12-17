@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -19,7 +20,7 @@ export class AdminLayoutComponent implements OnInit {
     { title: 'Requests' , path: "/admin/requests", class: "" , icon: "assignment"},
   ]
 
-  constructor(private userService:UserService, private router: Router) { }
+  constructor(private userService:UserService, private router: Router,private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -31,10 +32,22 @@ export class AdminLayoutComponent implements OnInit {
       return true;
   };
 
-  logout() {
-    this.userService.logout()
-    .then(() => this.router.navigate(['/']))
-    .catch((e) => console.error(e))
+ 
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'close', { duration: 1500 });
   }
+
+ 
+ 
+  logout() {
+    this.userService.logout().then(() => {
+      this.openSnackBar(" logout is  successfully")
+      this.router.navigate(['/admin/login']
+    )}).catch(e => console.log(e))
+  }
+
+
+
+      
 
 }
