@@ -51,6 +51,7 @@ import { AddCommentComponent } from './components/add-comment/add-comment.compon
 import { ReportUserComponent } from './components/report-user/report-user.component';
 import { SendTicketComponent } from './components/send-ticket/send-ticket.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -86,6 +87,7 @@ import { MatMenuModule } from '@angular/material/menu';
     SendTicketComponent,
   ],
   imports: [
+    MatChipsModule,
     MatMenuModule,
     MatExpansionModule,
     MatSlideToggleModule,

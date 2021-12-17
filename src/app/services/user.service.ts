@@ -21,7 +21,7 @@ export class UserService {
     .toPromise()
     .then( (response:any) => {
       console.log(response)
-      this.setUserAndToken(response)
+      //this.setUserAndToken(response)
       this.alertyfy.success("register successfully")
       return response
     })
@@ -40,7 +40,7 @@ export class UserService {
   }
 
   setUserAndToken ( response ) {
-    this.user =  new User( response.user.nom , response.user.email , response.user.is_employees, response.user.image || '' )
+    this.user =  new User( response.user.nom , response.user.email , response.user.is_employees, response.user.image || ' ' )
     localStorage.setItem('user', this.user.toJSON())
     localStorage.setItem('token',response.token)
     localStorage.setItem('role', response.user.groups ? Role.Admin : (response.user.is_employees ? Role.Worker : "client") )

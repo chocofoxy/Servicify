@@ -27,7 +27,7 @@ export class ReportUserComponent  {
 
   reportUser() {
     this.userService.report(this.data.id , this.report).then(() => {
-      this.openSnackBar(" Comment added successfully")
+      this.openSnackBar(" You reported this user successfully")
       this.dialogRef.close();
     }).catch(e => console.log(e))
   }

@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/class/user';
+import { ReportUserComponent } from 'src/app/components/report-user/report-user.component';
+import { SendTicketComponent } from 'src/app/components/send-ticket/send-ticket.component';
 import { AlertyfyService } from 'src/app/services/alertyfy.service';
 import { PostService } from 'src/app/services/post.service';
 import { SuggestionService } from 'src/app/services/suggestion.service';
 import { UserService } from 'src/app/services/user.service';
 import { WorkerService } from 'src/app/services/worker.service';
+import { ReportsComponent } from '../../admin/reports/reports.component';
 
 @Component({
   selector: 'app-profile',
@@ -33,6 +37,7 @@ export class ProfileComponent implements OnInit {
     profile = null
   
     constructor(
+      public dialog: MatDialog,
       private fb: FormBuilder,
       private workerService:WorkerService,
       private userService: UserService,
@@ -108,5 +113,32 @@ export class ProfileComponent implements OnInit {
       this.alertyfy.success("your request has been send")
     }
 
+    sendTicket() {
+      const dialogRef = this.dialog.open(SendTicketComponent,{ 
+        width: '500px' , 
+        data: { id: this.profile.user.id} ,
+        //backdropClass: 'bdrop',
+      });
+      dialogRef.afterOpened().subscribe( ()=> {
+        console.log('open')
+      })
+      dialogRef.afterClosed().subscribe(() => {
+        console.log('close')
+      });
+    }
+
+    report() {
+      const dialogRef = this.dialog.open(ReportUserComponent,{ 
+        width: '500px' , 
+        data: { id: this.profile.user.id} ,
+        //backdropClass: 'bdrop',
+      });
+      dialogRef.afterOpened().subscribe( ()=> {
+        console.log('open')
+      })
+      dialogRef.afterClosed().subscribe(() => {
+        console.log('close')
+      });
+    }
 
 }
