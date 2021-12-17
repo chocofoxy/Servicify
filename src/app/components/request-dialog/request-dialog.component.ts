@@ -47,6 +47,6 @@ export class RequestDialogComponent implements OnInit  {
   }
 
   openSnackBar(message: string) {
-    this._snackBar.open(message, 'close', { duration: 500 });
+    this._snackBar.open(message, 'close', { duration: 1500 });
   }
 }

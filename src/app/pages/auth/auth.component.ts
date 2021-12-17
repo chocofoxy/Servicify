@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AlertyfyService } from 'src/app/services/alertyfy.service';
 import { UserService } from 'src/app/services/user.service';
@@ -17,7 +18,8 @@ export class AuthComponent implements OnInit {
   swipe: Boolean = false ;
   swipeClass: String = "container" ;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router, private alertyfy: AlertyfyService) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router, 
+    private alertyfy: AlertyfyService,private _snackBar: MatSnackBar) { }
 
 
   ngOnInit() {
@@ -36,16 +38,23 @@ export class AuthComponent implements OnInit {
 
   }
 
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'close', { duration: 700 });
+  }
+
+
+
   signup() {
     this.userService.register(this.signupform.value)
-      .then(() => this.swipeSide() )
+      .then(() => {this.swipeSide() 
+      this.openSnackBar(" Signup is  successfully") })
       .catch((e) => console.error(e))
   }
 
   login() {
     this.userService.login(this.user)
       .then(() => {
-        this.alertyfy.success("You logged in successfully");
+        this.openSnackBar(" Login is  successfully") 
         this.router.navigate(['/home'])
       })
       .catch((e) => {
