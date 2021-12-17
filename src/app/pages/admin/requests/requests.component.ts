@@ -76,6 +76,6 @@ export class RequestsComponent implements OnInit {
   }
 
   openSnackBar(message: string) {
-    this._snackBar.open(message, 'close', { duration: 5 });
+    this._snackBar.open(message, 'close', { duration: 500 });
   }
 }

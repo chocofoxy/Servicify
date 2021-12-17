@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/class/user';
 import { AlertyfyService } from 'src/app/services/alertyfy.service';
 import { PostService } from 'src/app/services/post.service';
@@ -38,7 +39,7 @@ export class SettingsComponent implements OnInit {
 
   workers = []
 
-  test: boolean = true;
+  test: boolean = false;
   profile = {
     username:'',
     numero_tel: '',
@@ -56,7 +57,8 @@ export class SettingsComponent implements OnInit {
     private userService: UserService,
     private postService: PostService,
     private alertyfy: AlertyfyService,
-    private suggetionService: SuggestionService
+    private suggetionService: SuggestionService,
+    private _snackBar:MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -124,11 +126,16 @@ export class SettingsComponent implements OnInit {
   }
 
   edit() {
-    this.test = false;
+    this.test = true;
+  }
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'close', { duration: 1500 });
   }
 
   save() {
-    this.userService.updateProfile(this.profile).then().catch(e => console.error(e))
+    this.userService.updateProfile(this.profile).then(()=>{
+      this.openSnackBar(" profile is updated  successfully")
+    }).catch(e => console.error(e))
     this.updateImage()
     this.test = true
   }
