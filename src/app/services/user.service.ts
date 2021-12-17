@@ -11,6 +11,7 @@ import { ConfigService } from './config.service';
 export class UserService {
 
   user: User | null = null
+  public profile = null 
 
   constructor(private http: HttpClient, private config: ConfigService,private alertyfy:AlertyfyService) {}
 
@@ -67,6 +68,7 @@ export class UserService {
     .get(`/service/api/auth/user`)
     .toPromise()
     .then( (response:any) => {
+      this.profile = response 
       console.log(response)
       return response
     })
@@ -109,8 +111,8 @@ export class UserService {
     })
   }
 
-  report(id) {
-    return this.http.post(`/service/api/auth/report/add/${id}/`,{})
+  report(id , form) {
+    return this.http.post(`/service/api/auth/report/add/${id}/`,form)
     .toPromise()
     .then( (response) => {
       console.log(response) 

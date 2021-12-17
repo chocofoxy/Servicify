@@ -24,7 +24,7 @@ import { WorkerIndexComponent } from "./pages/worker/index/index.component";
 
 const routes: Routes = [
   { path: "home", component: ClientIndexComponent, canActivate: [AuthedGuard] },
-  { path: "profile", component: ProfileComponent, canActivate: [AuthedGuard] },
+  { path: "profile/:id", component: ProfileComponent, canActivate: [AuthedGuard] },
   { path: "settings", component: SettingsComponent, canActivate: [AuthedGuard] },
   { path: "worker", component: WorkerIndexComponent, canActivate: [AuthedGuard] },
   //{ path: '', component: IndexComponent, canActivate: [GuestGuard] },

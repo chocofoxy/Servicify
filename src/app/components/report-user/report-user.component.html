@@ -1,1 +1,12 @@
-<p>report-user works!</p>
+<h1 mat-dialog-title> Report user </h1>
+<div mat-dialog-content class="d-flex flex-column">
+  <p>Why do you want to report this user ?</p>
+  <mat-form-field color="accent" appearance="fill">
+    <mat-label>Reason</mat-label>
+    <textarea matInput [(ngModel)]="report.message" ></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()"> Cancel</button>
+  <button mat-button (click)="reportUser()" cdkFocusInitial> report </button>
+</div>

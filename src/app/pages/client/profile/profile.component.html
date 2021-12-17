@@ -1,1 +1,43 @@
-<p>profile works!</p>
+<div class='bg'>
+    <app-header-client></app-header-client>
+    <div class="py-4">
+        <div class="d-flex justify-content-center" style="width:100%;">
+            <mat-card class="bar">
+                <h4 class="mx-4 "> Welcome to your client profile </h4>
+            </mat-card>
+        </div>
+        <div class="main d-flex justify-content-center py-4">
+            <div class="sidebar mx-4 p-2">
+                <app-client-card></app-client-card>
+                <mat-card class="my-4">
+                    <mat-nav-list>
+                        <a mat-list-item *ngFor="let link of links" class="sidenav-link my-4"
+                            [routerLink]="[link.path]">
+                            <mat-icon md-list-icon class="mx-4"> {{ link.icon }} </mat-icon>
+                            <span class="title" md-line> {{ link.title }} </span>
+                        </a>
+                    </mat-nav-list>
+                </mat-card>
+            </div>
+            <mat-card *ngIf="profile" class="post-container p-2">
+                <div class="d-flex justify-content-around algin-items-center">
+                    <img [src]=" 'http://159.223.28.104' + profile.client.image" class="img-fluid profile-image rounded-circle" width="200">
+                </div>
+            </mat-card>
+            <div class="suggestion-container mx-4">
+                <div class="search__container p-5">
+                    <p class="search__title">
+                        Go ahead, hover over search
+                    </p>
+                    <input class="search__input" [(ngModel)]="query" (keyup)="searchWorker()" type="text"
+                        placeholder="Search">
+                </div>
+                <app-worker-card *ngFor="let worker of workers" [worker]="worker"></app-worker-card>
+            </div>
+        </div>
+        <div>
+            <app-footer></app-footer>
+        </div>
+    </div>
+
+</div>

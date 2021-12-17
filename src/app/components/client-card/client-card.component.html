@@ -27,7 +27,7 @@
             <ng-template #dashboardLink>
                 <div class="my-3 d-flex flex-column">
                     <span class="my-2"> Switch to Worker profile ? </span> 
-                    <button  mat-stroked-button color="accent" class="mx-1" > Go to dashboard </button>
+                    <button (click)="redirect()" mat-stroked-button color="accent" class="mx-1" > Go to dashboard </button>
                 </div>
             </ng-template>
         </mat-card-content>

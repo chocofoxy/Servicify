@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { User } from 'src/app/class/user';
 import { AdminService } from 'src/app/services/admin.service';
 import { SuggestionService } from 'src/app/services/suggestion.service';
@@ -19,7 +20,7 @@ export class ClientCardComponent implements OnInit {
 
   @Input('worker') worker = false ;
 
-  constructor(private userService: UserService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
+  constructor(private userService: UserService, public dialog: MatDialog, private _snackBar: MatSnackBar, private router: Router) { }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(RequestDialogComponent,{ 
@@ -40,6 +41,10 @@ export class ClientCardComponent implements OnInit {
     this.userService.getProfile().then((profile: any) => {
       //this.user.image = profile.image.replace('localhost','159.223.28.104')
     }).catch((e) => console.log(e))
+  }
+
+  redirect() {
+    this.router.navigate(['/worker'])
   }
 
 }

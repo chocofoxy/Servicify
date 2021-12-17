@@ -65,6 +65,10 @@ export class ClientIndexComponent implements OnInit {
         description: [""],
         disponible: [""],
       });
+
+      this.userService.getProfile().then((response)=> {
+        this.links[1].path = "/profile/" + response.user.id
+      }).catch( e => console.log(e))
     }
   
     requestRole() {

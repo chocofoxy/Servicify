@@ -12,7 +12,7 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-                <button [disabled]="post.client.id == user.id" mat-menu-item> Delete </button>
+                <button [disabled]="post.client.id == user.id" (click)="delete()" mat-menu-item> Delete </button>
             </mat-menu>
         </div>
     </div>
