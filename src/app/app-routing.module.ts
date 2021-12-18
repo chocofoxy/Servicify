@@ -23,12 +23,11 @@ import { WorkerIndexComponent } from "./pages/worker/index/index.component";
 
 
 const routes: Routes = [
-  { path: "", component: ClientIndexComponent, canActivate: [AuthedGuard] },
   { path: "home", component: ClientIndexComponent, canActivate: [AuthedGuard] },
   { path: "profile/:id", component: ProfileComponent, canActivate: [AuthedGuard] },
   { path: "settings", component: SettingsComponent, canActivate: [AuthedGuard] },
   { path: "worker", component: WorkerIndexComponent, canActivate: [AuthedGuard] },
-  //{ path: '', component: IndexComponent, canActivate: [GuestGuard] },
+  { path: 'landing', component: IndexComponent, canActivate: [GuestGuard] },
   { path: "auth", component: AuthComponent, canActivate: [GuestGuard] },
   {
     path: "admin/login",
