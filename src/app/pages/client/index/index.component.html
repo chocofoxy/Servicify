@@ -11,7 +11,7 @@
                 <app-client-card></app-client-card>
                 <mat-card class="my-4">
                     <mat-nav-list>
-                        <a mat-list-item *ngFor="let link of links" class="sidenav-link my-4"
+                        <a  mat-list-item *ngFor="let link of links" [disabled]='link.state' class="sidenav-link my-4"
                             [routerLink]="[link.path]">
                             <mat-icon md-list-icon class="mx-4"> {{ link.icon }} </mat-icon>
                             <span class="title" md-line> {{ link.title }} </span>

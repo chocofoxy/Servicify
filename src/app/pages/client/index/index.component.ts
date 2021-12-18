@@ -14,9 +14,9 @@ import { UserService } from 'src/app/services/user.service';
 export class ClientIndexComponent implements OnInit {
 
   links = [
-    { title: 'Home' , path: "/home", class: "" , icon: "dashboard"},
-    { title: 'Profile' , path: "/profile", class: "" , icon: "person"},
-    { title: 'Dashboard' , path: "/worker", class: "" , icon: "group"},
+    { title: 'Home' , path: "/home", class: "" , icon: "dashboard", state: false},
+    { title: 'Profile' , path: "/profile", class: "" , icon: "person", state: false},
+    { title: 'Dashboard' , path: "/worker", class: "" , icon: "group", state: false},
   ]
     requestform: FormGroup;
     user: User;
@@ -68,6 +68,7 @@ export class ClientIndexComponent implements OnInit {
 
       this.userService.getProfile().then((response)=> {
         this.links[1].path = "/profile/" + response.user.id
+        this.links[2].state =  !response.is_employees
       }).catch( e => console.log(e))
     }
   

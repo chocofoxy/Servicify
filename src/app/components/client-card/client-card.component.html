@@ -22,7 +22,7 @@
         <mat-card-content>
             <div *ngIf="!user.employee ; else dashboardLink" class="my-3 d-flex flex-column">
                <span class="my-2"> Do you want to become a Worker ? </span>
-               <button  mat-stroked-button (click)="openDialog()" color="primary" class="mx-1" > Request now </button>
+               <button  mat-stroked-button (click)="openDialog()" [disabled]='userService.profile && userService.profile.is_requested' color="primary" class="mx-1" > Request now </button>
             </div>
             <ng-template #dashboardLink>
                 <div class="my-3 d-flex flex-column">

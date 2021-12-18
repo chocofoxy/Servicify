@@ -20,7 +20,7 @@ export class ClientCardComponent implements OnInit {
 
   @Input('worker') worker = false ;
 
-  constructor(private userService: UserService, public dialog: MatDialog, private _snackBar: MatSnackBar, private router: Router) { }
+  constructor(public userService: UserService, public dialog: MatDialog, private _snackBar: MatSnackBar, private router: Router) { }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(RequestDialogComponent,{ 
