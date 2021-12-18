@@ -26,6 +26,16 @@ export class UserService {
       return response
     })
   }
+  contact(message) {
+    return this.http
+    .post(`/service/api/auth/contact us `, message)
+    .toPromise()
+    .then( (response:any) => {
+      console.log(response)
+      //this.setUserAndToken(response)
+      return response
+    })
+  }
 
   login(credentials) {
     return this.http.post(`/service/api/auth/login`, credentials,  this.config.guestRequest)
