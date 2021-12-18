@@ -2,7 +2,7 @@
     <app-header-client></app-header-client>
     <div class="main d-flex justify-content-center py-5">
         <div class="sidebar mx-4 p-2">
-            <app-client-card [worker]='true' ></app-client-card>
+            <app-client-card [worker]='true'></app-client-card>
             <mat-card class="my-4">
                 <mat-nav-list>
                     <a mat-list-item *ngFor="let link of links" class="sidenav-link my-4" [routerLink]="[link.path]">
@@ -14,18 +14,91 @@
         </div>
         <div class="post-container p-2">
             <div>
-                
+
             </div>
             <mat-divider class="my-4"></mat-divider>
-            
+            <div>
+                <mat-card class="p-2 mb-2 d-flex align-items-center justify-content-between">
+                    <mat-form-field color="primary" style="width: 400px;" class="search" appearance="fill">
+                        <mat-label>Search</mat-label>
+                        <input matInput placeholder="Ex. Jouini" (keyup)="filter()" [(ngModel)]="search">
+                        <button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </mat-card>
+                <table mat-table [dataSource]="tickets" class="mat-elevation-z8">
+
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> ID </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="from_client">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.from_client.nom}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="message">
+                        <th mat-header-cell *matHeaderCellDef> Message </th>
+                        <td mat-cell *matCellDef="let element"> i have a job for you </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef> Actions </th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-icon-button color="primary" (click)="approve(element.id)"
+                                matTooltip="Edit category" aria-label="Edit category">
+                                <mat-icon>check_circle_outline</mat-icon>
+                            </button>
+                            <button mat-icon-button color="accent" (click)="ignore(element.id)"
+                                matTooltip="Delete category" aria-label="Delete category">
+                                <mat-icon>highlight_off</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div>
             <mat-divider class="my-4"></mat-divider>
             <app-post-card *ngFor="let post of posts" [post]="post" class="my-5"></app-post-card>
         </div>
-        <div class="suggestion-container mx-4">
-            
+        <div class="suggestion-container mx-4 py-4">
+            <div class="stat-container mb-5">
+                <div class="card text-white  mb-4">
+                    <div class="card-header">Tickets</div>
+                    <div class="card-body">
+                        <p class="card-text">59</p>
+                    </div>
+                </div>
+                <div class="card text-white mb-4">
+                    <div class="card-header">Clients</div>
+                    <div class="card-body">
+                        <p class="card-text">7.3</p>
+                    </div>
+                </div>
+                <div class="card text-white mb-4">
+                    <div class="card-header">Messages</div>
+                    <div class="card-body">
+                        <p class="card-text">157</p>
+                    </div>
+                </div>
+                <div class="card text-white mb-4">
+                    <div class="card-header">Match</div>
+                    <div class="card-body">
+                        <p class="card-text">200</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div>
-       <app-footer></app-footer>
+        <app-footer></app-footer>
     </div>
 </div>

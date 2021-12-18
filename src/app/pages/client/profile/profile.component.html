@@ -21,27 +21,27 @@
             </div>
             <mat-card *ngIf="profile" class="post-container p-2">
                 <div class="d-flex justify-content-around algin-items-center pt-5 pb-3">
-                    <img [src]=" 'http://159.223.28.104' + profile.image" class="img-fluid profile-image rounded-circle" width="300">
+                    <img [src]=" 'http://159.223.28.104' + ( profile.image || profile.client.image )  " class="img-fluid profile-image rounded-circle" width="300">
                 </div>
                 <div class="d-flex justify-content-around flex-column align-items-center ">
                     <div class="d-flex flex-column my-4">
-                        <span class="text-center name"> {{ profile.nom }} </span>
-                        <span> {{ profile.email }} </span>
+                        <span class="text-center name"> {{ profile.nom || profile.client.nom }} </span>
+                        <span> {{ profile.email || profile.client.email  }} </span>
                     </div>
                     <div class="my-4">
-                        <button class="mx-2" (click)='sendTicket()' mat-raised-button color="primary">Send Ticket</button>
-                        <button class="mx-2" mat-raised-button color="accent"> Chat </button>
-                        <button class="mx-2" (click)='report()' mat-raised-button color="warn"> Report</button>
+                        <button class="mx-2" [disabled]="!profile.client" (click)='sendTicket()' mat-raised-button color="primary">Send Ticket</button>
+                        <button class="mx-2" [disabled]="!profile.client" mat-raised-button color="accent"> Chat </button>
+                        <button class="mx-2" [disabled]="!profile.client" (click)='report()' mat-raised-button color="warn"> Report</button>
                     </div>
                 </div>
                 <div class="p-5">
                     <mat-list role="list">
-                        <mat-list-item role="listitem"> Username : {{ profile.nom }} </mat-list-item>
-                        <mat-list-item role="listitem"> Email : {{ profile.email }} </mat-list-item>
+                        <mat-list-item role="listitem"> Username : {{ profile.nom || profile.client.nom }} </mat-list-item>
+                        <mat-list-item role="listitem"> Email : {{ profile.email || profile.client.email }} </mat-list-item>
                         <mat-list-item role="listitem"> Role : <mat-chip-list>
-                        <mat-chip *ngIf="!profile.is_employees;else worker" class="mx-2" color="primary" selected> Client </mat-chip><ng-template #worker><mat-chip  class="mx-2" color="accent" selected> Worker </mat-chip></ng-template> </mat-chip-list> </mat-list-item>
-                        <mat-list-item role="listitem"> Address : {{ profile.adress  }} </mat-list-item>
-                        <mat-list-item role="listitem"> Tel : {{ profile.tel || "54573666" }} </mat-list-item>
+                        <mat-chip class="mx-2" color="primary" selected> Client </mat-chip><mat-chip *ngIf="profile.is_employees || profile.client.is_employees ;"  class="mx-2" color="accent" selected> Worker </mat-chip></mat-chip-list> </mat-list-item>
+                        <mat-list-item role="listitem"> Address : {{ profile.adress || profile.client.adress  }} </mat-list-item>
+                        <mat-list-item role="listitem"> Tel : {{ profile.tel || profile.client.tel ||  "54573666" }} </mat-list-item>
                       </mat-list>
                 </div>
                 

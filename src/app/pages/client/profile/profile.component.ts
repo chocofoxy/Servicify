@@ -116,7 +116,7 @@ export class ProfileComponent implements OnInit {
     sendTicket() {
       const dialogRef = this.dialog.open(SendTicketComponent,{ 
         width: '500px' , 
-        data: { id: this.profile.user.id} ,
+        data: { id: this.profile.id} ,
         //backdropClass: 'bdrop',
       });
       dialogRef.afterOpened().subscribe( ()=> {
@@ -130,7 +130,7 @@ export class ProfileComponent implements OnInit {
     report() {
       const dialogRef = this.dialog.open(ReportUserComponent,{ 
         width: '500px' , 
-        data: { id: this.profile.user.id} ,
+        data: { id: this.profile.id} ,
         //backdropClass: 'bdrop',
       });
       dialogRef.afterOpened().subscribe( ()=> {
